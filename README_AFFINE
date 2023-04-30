@@ -1,0 +1,35 @@
+			EXPLICATION DU FONCTIONNEMENT DU CHIFFREMENT AFFINE
+Le chiffrement affine est une technique de cryptage qui utilise une fonction mathématique affine pour transformer chaque lettre du message en une lettre chiffrée. Cette fonction affine est de la forme f(x) = ax + b, où a et b sont des constantes choisies à l'avance, et x représente la lettre à chiffrer.
+
+Pour chiffrer un message, on commence par choisir les valeurs de a et b, qui déterminent la façon dont chaque lettre sera transformée. Ensuite, chaque lettre du message est remplacée par sa lettre chiffrée en utilisant la formule f(x) = ax + b. Enfin, les lettres chiffrées sont regroupées pour l'ancien message chiffré final.
+
+Par exemple, si nous voulons chiffrer le message "HELLO" en utilisant a = 5 et b = 7, nous commençons par remplacer chaque lettre par sa valeur numérique dans l'alphabet (A=0, B=1, C=2, etc .). Nous obtenons alors :
+
+H = 7
+E = 4
+L = 11
+L = 11
+O = 14
+Ensuite, nous appliquons la formule f(x) = ax + b à chaque valeur numérique pour obtenir la valeur chiffrée correspondante :
+
+H chiffré = (5 x 7 + 7) % 26 = 16 (correspondant à la lettre Q)
+E chiffré = (5 x 4 + 7) % 26 = 9 (correspondant à la lettre J)
+L chiffré = (5 x 11 + 7) % 26 = 16 (correspondant à la lettre Q)
+L chiffré = (5 x 11 + 7) % 26 = 16 (correspondant à la lettre Q)
+O chiffré = (5 x 14 + 7) % 26 = 5 (correspondant à la lettre F)
+Ainsi, le message chiffré final est "QJQQF".
+
+Le chiffrement affine peut être déchiffré en utilisant la formule inverse, f(x) = a^-1(x - b) % 26, où a^-1 est l'inverse multiplicatif de a modulo 26. Cette formule permet de retrouver la lettre d'origine à partir de sa lettre chiffrée.
+
+
+
+
+
+
+	int inverse_modulaire
+
+Cette fonction en C permet de calculer l'inverse multiplicatif modulaire de amodulo m.
+
+Elle utilise d'abord la fonction euclid_etendu(que nous avons évoquée précédemment) pour trouver les coefficients xet ytels que ax + my = pgcd(a, m). Ensuite, elle xn'est pas autorisée, et si c'est le cas, elle s'ajoute mjusqu'à xce que xsoit positif. C'est nécessaire car l'inverse multiplicatif modulaire doit être un nombre positif.
+
+Enfin, la fonction renvoyée x, qui est l'inverse multiplicatif modulaire de amodulo m. Si aet mne sont pas premiers entre eux, l'inverse multiplicatif modulaire n'existe pas, et la fonction renverra une valeur incorrecte. Il est donc important de vérifier que aet msont premiers entre eux avant d'appeler cette fonction.
